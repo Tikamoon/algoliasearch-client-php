@@ -121,7 +121,7 @@ final class ApiWrapper implements ApiWrapperInterface
     {
         $uri = $this->createUri($path)
             ->withQuery($requestOptions->getBuiltQueryParameters())
-            ->withScheme('https');
+            ->withScheme($this->config->getScheme());
 
         $body = array_merge($data, $requestOptions->getBody());
 

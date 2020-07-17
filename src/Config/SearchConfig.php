@@ -11,6 +11,8 @@ class SearchConfig extends AbstractConfig
         $config = array(
             'appId' => null !== $appId ? $appId : getenv('ALGOLIA_APP_ID'),
             'apiKey' => null !== $apiKey ? $apiKey : getenv('ALGOLIA_API_KEY'),
+            'hosts' => getenv('ALGOLIA_HOST') ? [getenv('ALGOLIA_HOST')] : null,
+            'scheme' => getenv('ALGOLIA_SCHEME') ?? 'https',
         );
 
         return new static($config);
@@ -22,6 +24,7 @@ class SearchConfig extends AbstractConfig
             'appId' => '',
             'apiKey' => '',
             'hosts' => null,
+            'scheme' => 'https',
             'readTimeout' => $this->defaultReadTimeout,
             'writeTimeout' => $this->defaultWriteTimeout,
             'connectTimeout' => $this->defaultConnectTimeout,

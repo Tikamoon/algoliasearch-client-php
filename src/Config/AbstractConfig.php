@@ -25,6 +25,7 @@ abstract class AbstractConfig
             'appId' => '',
             'apiKey' => '',
             'hosts' => null,
+            'scheme' => 'https',
             'readTimeout' => $this->defaultReadTimeout,
             'writeTimeout' => $this->defaultWriteTimeout,
             'connectTimeout' => $this->defaultConnectTimeout,
@@ -112,6 +113,18 @@ abstract class AbstractConfig
     public function setDefaultHeaders(array $defaultHeaders)
     {
         $this->config['defaultHeaders'] = $defaultHeaders;
+
+        return $this;
+    }
+
+    public function getScheme()
+    {
+        return $this->config['scheme'];
+    }
+
+    public function setScheme(string $scheme)
+    {
+        $this->config['scheme'] = $scheme;
 
         return $this;
     }
